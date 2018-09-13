@@ -1,0 +1,62 @@
+.app-container {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+}
+
+.app-container.app-is-mobile {
+	width: 100%;
+	height:100%;
+	position: absolute;
+}
+
+.app-is-mobile .app-toolbar {
+	position: fixed;
+	/* Make sure the toolbar will stay on top of the content as it scrolls past. */
+	z-index: 2;
+}
+
+.item {
+	border-left: 1px solid black;
+	padding-left: 10px;
+}
+
+.item > label {
+	color: #54e43b;
+}
+
+.is-mobile-second-row > .item {
+	border-left: none;
+	width: 100%;
+	padding: 0 !important;
+}
+
+.app-container .mat-icon-button {
+	width: 30px;
+	height: 28px;
+	line-height: 28px;
+}
+
+.app-container .mat-icon-button .mat-icon, .mat-icon-button i {
+	line-height: 26px;
+}
+
+.app-container .mat-icon {
+	height: 26px;
+	width: 26px;
+}
+
+app-commands {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+.mat-icon-button.is-off {
+	color: gray;
+}

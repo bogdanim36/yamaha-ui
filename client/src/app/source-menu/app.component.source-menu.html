@@ -1,0 +1,23 @@
+<ng-container *ngIf="yamaha.status.menu">
+	<button mat-icon-button (click)="yamaha.showSourceMenu=false"
+			  class="fa fa-angle-double-right">
+	</button>
+	<div style="" class="playback-nav">
+		<div style="height:100%;width:100%;overflow:auto;" class="playback-menu">
+			<div *ngFor="let key of objectKeys(yamaha.status.menu.Current_List[0]);"
+				  mat-button
+				  class="menu-item"
+				  [class.active]="key===yamaha.status.menu.currentLine"
+				  (click)="select(key)"
+			><div *ngIf="yamaha.status.menu.Current_List[0][key][0].Txt[0]">{{yamaha.status.menu.Current_List[0][key][0].Txt[0].unescapeForXML()}}</div>
+			</div>
+		</div>
+	</div>
+	<div style="" class="playback-nav-bar">
+		<button mat-icon-button (click)="return()" class="fa fa-level-up"></button>
+		<button mat-icon-button (click)="pageUp()" class="fa fa-angle-double-up"></button>
+		<button mat-icon-button (click)="up()" class="fa fa-angle-up"></button>
+		<button mat-icon-button (click)="down()" class="fa fa-angle-down"></button>
+		<button mat-icon-button (click)="pageDown()" class="fa fa-angle-double-down"></button>
+	</div>
+</ng-container>

@@ -1,0 +1,36 @@
+.app-is-mobile .album-info {
+	position: absolute;
+	top: 91px;
+	left: 0;
+	right: 10px;
+	bottom: 0;
+}
+
+.album-info {
+	position: relative;
+	overflow: hidden;
+	height: 315px;
+	box-sizing: border-box;
+	width: 100%;
+	font-size: 18px;
+	line-height: 30px;
+	font-family: "Helvetica Neue", sans-serif;
+	font-weight: 500;
+}
+
+.playback-album-art {
+	height: 180px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 300px !important;
+	max-width: 100%;
+	margin: 20px auto !important;
+}
+
+button.fa-angle-double-left {
+	top: 10px;
+	position: absolute;
+	right: 5px
+}
+

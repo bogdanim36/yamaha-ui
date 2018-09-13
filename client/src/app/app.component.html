@@ -1,0 +1,59 @@
+<div class="app-container" #yamahaRef [class.app-is-mobile]="isMobile">
+	<mat-toolbar color="primary">
+		<mat-toolbar-row>
+			<button mat-icon-button onclick="window.location.reload(true)" style="margin-left:5px;">
+				<mat-icon>refresh</mat-icon>
+			</button>
+			<button mat-icon-button
+					  *ngIf="!isMobile"
+					  (click)="yamaha.windowCheckSize()"
+					  style="margin-left:5px;"
+					  class="fa fa-arrows-h">
+			</button>
+			<button mat-icon-button (click)="toggleSidePanel()"
+					  *ngIf="isMobile">
+				<mat-icon>settings</mat-icon>
+			</button>
+			<button mat-icon-button (click)="yamaha.powerToggle()" [class.is-off]="!yamaha.status.powerIsOn()">
+				<mat-icon>power</mat-icon>
+			</button>
+			<mat-select placeholder="Input"
+							style="width:110px;min-width:100px"
+							[(value)]="yamaha.status.currentInput"
+							(selectionChange)="yamaha.setInputTo($event)">
+				<mat-option *ngFor="let option of yamaha.config.inputs" [value]="option">
+					{{option}}
+				</mat-option>
+			</mat-select>
+			<button mat-icon-button
+					  class="fa toggle-size"
+					  [class.fa-window-maximize]="yamaha.status.collapsed"
+					  [class.fa-window-minimize]="!yamaha.status.collapsed"
+					  *ngIf="!isMobile"
+					  (click)="yamaha.toggleSize($event)">
+			</button>
+			<app-playback *ngIf="!isMobile" style="width:100%">
+			</app-playback>
+		</mat-toolbar-row>
+		<mat-toolbar-row *ngIf="!isMobile">
+			<app-commands class="mat-toolbar-single-row">
+			</app-commands>
+		</mat-toolbar-row>
+		<mat-toolbar-row *ngIf="isMobile">
+			<app-playback class="is-mobile-second-row" style="width:100%">
+			</app-playback>
+		</mat-toolbar-row>
+
+	</mat-toolbar>
+
+	<div *ngIf="sidePanelShow" class="mat-sidenav">
+		<app-commands></app-commands>
+	</div>
+	<div class="album-info" *ngIf="yamaha.status.playback && (!yamaha.status.collapsed || isMobile)">
+		<app-album-info *ngIf="!yamaha.showSourceMenu">
+		</app-album-info>
+		<app-source-menu *ngIf="yamaha.showSourceMenu">
+		</app-source-menu>
+	</div>
+</div>
+

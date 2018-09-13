@@ -1,0 +1,60 @@
+<ng-container>
+	<div class="item" style="border-left:none">
+		<Label>Volume:</Label>
+		<button mat-icon-button class="fa fa-moon-o" (click)="yamaha.setNightSound()">
+		</button>
+		<button mat-icon-button (click)="yamaha.volumeDown()">
+			<mat-icon>remove</mat-icon>
+		</button>
+		<mat-form-field class="example-full-width" style="width:46px">
+			<input matInput [value]="yamaha.status.volume">
+		</mat-form-field>
+		<button mat-icon-button>
+			<mat-icon (click)="yamaha.volumeUp()">add</mat-icon>
+		</button>
+		<button mat-icon-button class="fa fa-sun-o" (click)="yamaha.setDaySound()">
+		</button>
+	</div>
+	<div class="item">
+		<Label>Subwoofer:</Label>
+		<button mat-icon-button
+				  [class.is-off]="!yamaha.status.subwooferIsOn()"
+				  (click)="yamaha.subwooferToggle()">
+			<mat-icon>power_settings_new</mat-icon>
+		</button>
+
+		<button mat-icon-button (click)="yamaha.subwooferDown()">
+			<mat-icon>remove</mat-icon>
+		</button>
+		<mat-form-field class="example-full-width" style="width:30px">
+			<input matInput [value]="yamaha.status.subwooferTrim">
+		</mat-form-field>
+		<button mat-icon-button>
+			<mat-icon (click)="yamaha.subwooferUp()">add</mat-icon>
+		</button>
+	</div>
+	<div class="item">
+		<Label>Treble:</Label>
+		<button mat-icon-button (click)="yamaha.trebleDown()">
+			<mat-icon>remove</mat-icon>
+		</button>
+		<mat-form-field class="example-full-width" style="width:30px">
+			<input matInput [value]="yamaha.status.treble">
+		</mat-form-field>
+		<button mat-icon-button>
+			<mat-icon (click)="yamaha.trebleUp()">add</mat-icon>
+		</button>
+	</div>
+	<div class="item">
+		<Label>Bass:</Label>
+		<button mat-icon-button (click)="yamaha.bassDown()">
+			<mat-icon>remove</mat-icon>
+		</button>
+		<mat-form-field class="example-full-width" style="width:30px">
+			<input matInput [value]="yamaha.status.bass">
+		</mat-form-field>
+		<button mat-icon-button>
+			<mat-icon (click)="yamaha.bassUp()">add</mat-icon>
+		</button>
+	</div>
+</ng-container>

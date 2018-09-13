@@ -1,0 +1,117 @@
+body {
+	margin: 0;
+}
+
+.mat-sidenav {
+	width: 100%;
+	padding-top: 5px;
+}
+
+.mat-sidenav .mat-input-element {
+	text-align: center;
+}
+
+.mat-toolbar-single-row, .mat-form-field {
+	padding: 0 !important;
+	height: 30px !important;
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+	padding-bottom: 0;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+	padding: 0;
+	border: 0;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+	bottom: 0;
+}
+
+input.mat-input-element {
+	margin-top: 0;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+	bottom: 4px;
+}
+
+.mat-toolbar .mat-input-element {
+	text-align: center;
+}
+
+.mat-sidenav {
+	background: #374594;;
+	color: #fff;
+}
+
+.mat-sidenav .item > label {
+	width: 160px;
+}
+
+.mat-sidenav app-commands .item {
+	width: 100%;
+	border-left: none;
+	display: inline-flex;
+}
+
+.app-is-mobile #mat-select-0 {
+	width: 100% !important;
+	margin-right: 5px;
+}
+
+.mat-toolbar-single-row,
+.mat-form-field,
+.mat-sidenav {
+	font-size: 18px;
+	line-height: 30px;
+	font-family: "Helvetica Neue", sans-serif;
+	font-weight: 500;
+
+}
+
+.mat-sidenav {
+	position: absolute;
+	top: 64px !important;
+	bottom: 0;
+	z-index: 1;
+}
+
+.mat-toolbar-single-row {
+	width: unset !important;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+	height: unset !important;
+	padding: 0 !important;
+}
+
+
+.app-is-mobile .mat-sidenav {
+	top: 91px !important;
+	font-size: 30px;
+}
+
+.mat-drawer-container {
+	position: unset !important;
+}
+
+
+.app-is-mobile .mat-toolbar {
+	font: 500 30px/45px Roboto, "Helvetica Neue", sans-serif;
+}
+
+.app-is-mobile.app-container .mat-icon-button, .app-is-mobile.app-container .mat-icon {
+	width: 40px !important;
+	height: 40px !important;
+	line-height: 40px !important;
+	font-size: 30px;
+}
+
+.app-is-mobile .mat-form-field {
+	font-size: 30px;
+	line-height: 40px;
+}

@@ -1,0 +1,16 @@
+<div class="item" style="text-align: center" *ngIf="yamaha.status.playback">
+	<div>
+		<button mat-icon-button class="fa fa-fast-backward" (click)="yamaha.rewind()">
+		</button>
+		<button mat-icon-button class="fa fa-stop" (click)="yamaha.stop()"
+		[style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'">
+		</button>
+		<button mat-icon-button class="fa fa-play" (click)="yamaha.play()"
+				  [style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'none':'inline'"></button>
+		<button mat-icon-button class="fa fa-pause" (click)="yamaha.pause()"
+				  [style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'"></button>
+		<button mat-icon-button class="fa fa-fast-forward" (click)="yamaha.skip()"></button>
+		<button mat-icon-button class="fa fa-random on" (click)="yamaha.shuffle()" [class.is-off]="yamaha.status.playback.Play_Mode[0].Shuffle[0] !=='On'">
+		</button>
+	</div>
+</div>

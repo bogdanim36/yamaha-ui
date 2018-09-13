@@ -1,0 +1,25 @@
+<ng-container >
+	<div class="playback-album-art"
+		  [style.background-image]="'url('+yamaha.getAlbumArt() +')'"></div>
+	<div style="width:100%;max-width:100%;position:relative;height:95px;line-height:30px">
+		<div >
+			<div class="current-song">
+				<div class="mat-toolbar-single-row" style="padding:0 10px !important;">
+					<label>artist:</label>
+					<div style="color: #3f51b5; margin-left:5px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{yamaha.status.playback? yamaha.status.playback.Meta_Info[0].Artist[0]:""}}</div>
+				</div>
+				<div class="mat-toolbar-single-row" style="padding:0 10px !important;;">
+					<div>song:</div>
+					<div style="color: #3f51b5; margin-left:5px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{yamaha.status.playback? yamaha.status.playback.Meta_Info[0].Song[0]:""}}</div>
+				</div>
+				<div class="mat-toolbar-single-row" style="padding:0 10px !important;;">
+					<div>album:</div>
+					<div style="color: #3f51b5; margin-left:5px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{yamaha.status.playback? yamaha.status.playback.Meta_Info[0].Album[0]:""}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button mat-icon-button (click)="yamaha.showSourceMenu=true" style=""
+			  class="fa fa-angle-double-left">
+	</button>
+</ng-container>

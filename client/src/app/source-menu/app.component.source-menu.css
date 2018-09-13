@@ -1,0 +1,37 @@
+app-source-menu {
+}
+.menu-item{
+	cursor: pointer;
+}
+.menu-item > div{
+	padding:0 10px;
+	background-color: antiquewhite;
+	margin-bottom:1px;
+}
+.menu-item:hover, button:hover {
+	background-color: lightsalmon;
+}
+button.fa-angle-double-right{
+	top:10px;
+	position: absolute;
+	left:5px
+}
+
+.app-is-mobile button.fa-angle-double-right {
+	top:10px;
+}
+.playback-nav-bar {
+	width:35px;
+	position:absolute;
+	top:10px;
+	right:0;
+	bottom:0
+}
+.playback-nav{
+	position: absolute;
+	top:10px;
+	left:40px;
+	right:40px;
+	bottom:10px;
+	overflow: auto;
+}

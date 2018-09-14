@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".app-is-mobile .album-info {\r\n\tposition: absolute;\r\n\ttop: 91px;\r\n\tleft: 0;\r\n\tright: 10px;\r\n\tbottom: 0;\r\n}\r\n\r\n.album-info {\r\n\tposition: relative;\r\n\toverflow: hidden;\r\n\theight: 315px;\r\n\tbox-sizing: border-box;\r\n\twidth: 100%;\r\n\tfont-size: 18px;\r\n\tline-height: 30px;\r\n\tfont-family: \"Helvetica Neue\", sans-serif;\r\n\tfont-weight: 500;\r\n}\r\n\r\n.playback-album-art {\r\n\theight: 180px;\r\n\tbackground-size: contain;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: center;\r\n\twidth: 300px !important;\r\n\tmax-width: 100%;\r\n\tmargin: 20px auto !important;\r\n}\r\n\r\nbutton.fa-angle-double-left {\r\n\ttop: 10px;\r\n\tposition: absolute;\r\n\tright: 5px\r\n}\r\n\r\n"
+module.exports = ".app-is-mobile .album-info {\r\n\tposition: absolute;\r\n\ttop: 91px;\r\n\tleft: 0;\r\n\tright: 10px;\r\n\tbottom: 0;\r\n\tfont-size:20px;\r\n\theight:unset;\r\n\toverflow: auto;\r\n}\r\n\r\n.album-info {\r\n\tposition: relative;\r\n\toverflow: hidden;\r\n\theight: 315px;\r\n\tbox-sizing: border-box;\r\n\twidth: 100%;\r\n\tfont-size: 18px;\r\n\tline-height: 30px;\r\n\tfont-family: \"Helvetica Neue\", sans-serif;\r\n\tfont-weight: 500;\r\n}\r\n\r\n.playback-album-art {\r\n\theight: 180px;\r\n\tbackground-size: contain;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: center;\r\n\twidth: 300px !important;\r\n\tmax-width: 100%;\r\n\tmargin: 20px auto !important;\r\n}\r\n\r\nbutton.fa-angle-double-left {\r\n\ttop: 10px;\r\n\tposition: absolute;\r\n\tright: 0px\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -170,6 +170,9 @@ var AppComponent = /** @class */ (function () {
     }
     AppComponent.prototype.ngAfterViewInit = function () {
         this.yamaha.element = this.yamahaEl.nativeElement;
+        console.log('Device info', this.deviceInfo, this.yamahaEl.nativeElement.parentNode);
+        if (this.isMobile)
+            jquery__WEBPACK_IMPORTED_MODULE_5__(this.yamahaEl.nativeElement).closest("body").addClass("app-is-mobile");
         var doc = window.document;
         var docEl = doc.documentElement;
         var requestFullScreen = docEl.requestFullscreen || docEl.webkitRequestFullScreen;
@@ -196,7 +199,7 @@ var AppComponent = /** @class */ (function () {
         this.isMobile = this.deviceService.isMobile();
         this.isTablet = this.deviceService.isTablet();
         this.isDesktop = this.deviceService.isDesktop();
-        console.log('Device info', this.deviceInfo);
+        // if (this.isMobile) this.yamahaEl.nativeElement
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('yamahaRef', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }),
@@ -611,7 +614,7 @@ var ApiService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "app-source-menu {\r\n}\r\n.menu-item{\r\n\tcursor: pointer;\r\n}\r\n.menu-item > div{\r\n\tpadding:0 10px;\r\n\tbackground-color: antiquewhite;\r\n\tmargin-bottom:1px;\r\n}\r\n.menu-item:hover, button:hover {\r\n\tbackground-color: lightsalmon;\r\n}\r\nbutton.fa-angle-double-right{\r\n\ttop:10px;\r\n\tposition: absolute;\r\n\tleft:5px\r\n}\r\n.app-is-mobile button.fa-angle-double-right {\r\n\ttop:10px;\r\n}\r\n.playback-nav-bar {\r\n\twidth:35px;\r\n\tposition:absolute;\r\n\ttop:10px;\r\n\tright:0;\r\n\tbottom:0\r\n}\r\n.playback-nav{\r\n\tposition: absolute;\r\n\ttop:10px;\r\n\tleft:40px;\r\n\tright:40px;\r\n\tbottom:10px;\r\n\toverflow: auto;\r\n}"
+module.exports = "app-source-menu {\r\n}\r\n.menu-item{\r\n\tcursor: pointer;\r\n}\r\n.menu-item > div{\r\n\tpadding:0 10px;\r\n\tbackground-color: antiquewhite;\r\n\tmargin-bottom:1px;\r\n}\r\n.menu-item:hover, button:hover {\r\n\tbackground-color: lightsalmon;\r\n}\r\nbutton.fa-angle-double-right{\r\n\ttop:10px;\r\n\tposition: absolute;\r\n\tleft:5px\r\n}\r\n.app-is-mobile button.fa-angle-double-right {\r\n\ttop:10px;\r\n}\r\n.playback-nav-bar {\r\n\twidth:40px;\r\n\tposition:absolute;\r\n\ttop:10px;\r\n\tright:0;\r\n\tbottom:0\r\n}\r\n.playback-nav{\r\n\tposition: absolute;\r\n\ttop:10px;\r\n\tleft:40px;\r\n\tright:40px;\r\n\tbottom:10px;\r\n\toverflow: auto;\r\n}"
 
 /***/ }),
 

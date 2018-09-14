@@ -1,4 +1,3 @@
-//jshint ignore:start
 var Promise = require("bluebird");
 var xml2js = Promise.promisifyAll(require("xml2js"));
 
@@ -13,17 +12,17 @@ function Yamaha() {}
 Yamaha.prototype.SendXMLToReceiver = function(xml) {
     var self = this;
     return this.getOrDiscoverIP().then(ip => {
-        var isPutCommand = xml.indexOf("cmd=\"PUT\"" >= 0);
+        var isPutCommand = xml.indexOf("cmd=\"PUT\"") >= 0 ;
         var delay = isPutCommand ? this.responseDelay * 1000 : 0;
         var req = {
             method: 'POST',
             uri: 'http://' + ip + '/YamahaRemoteControl/ctrl',
-						body: xml
-			  };
-				if (this.requestTimeout) req.timeout = this.requestTimeout;
+            body: xml
+        };
+        if (this.requestTimeout) req.timeout = this.requestTimeout;
 
-				var prom = request.postAsync(req).delay(delay).then(response => response.body)
-				if (self.catchRequestErrors === true) prom.catch(console.log.bind(console));
+        var prom = request.postAsync(req).delay(delay).then(response => response.body)
+        if (self.catchRequestErrors === true) prom.catch(console.log.bind(console));
 
         return prom
 
@@ -52,7 +51,7 @@ Yamaha.prototype.discover = function(timeout) {
                 request(headers.LOCATION, function(error, response, body) {
                     if (!error && response.statusCode == 200 && reYamahaManufacturer.test(body)) {
                         clearTimeout(timer);
-                        peer.close()
+                        peer.close();
                         resolve(address.address)
                     }
                 });
@@ -77,7 +76,9 @@ function getZone(zone) {
         case 1:
             zone = "Main_Zone";
             break;
-        case 2: case 3: case 4:
+        case 2:
+        case 3:
+        case 4:
             zone = "Zone_" + zone;
     }
     return zone;
@@ -367,8 +368,16 @@ function enrichBasicStatus(basicStatus, zone) {
     zone = getZone(zone);
 
     basicStatus.getVolume = function() {
-        return parseInt(basicStatus.YAMAHA_AV[zone][0].Basic_Status[0].Volume[0].Lvl[0].Val[0]);
+        try {
+            return parseInt(basicStatus.YAMAHA_AV[zone][0].Basic_Status[0].Volume[0].Lvl[0].Val[0]);
+        } catch (e) {
+            return -999;
+        }
     };
+
+    basicStatus.getZone = function() {
+        return zone;
+    }
 
     basicStatus.isMuted = function() {
         return basicStatus.YAMAHA_AV[zone][0].Basic_Status[0].Volume[0].Mute[0] !== "Off";

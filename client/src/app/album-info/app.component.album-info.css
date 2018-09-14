@@ -4,6 +4,9 @@
 	left: 0;
 	right: 10px;
 	bottom: 0;
+	font-size:20px;
+	height:unset;
+	overflow: auto;
 }
 
 .album-info {
@@ -31,6 +34,6 @@
 button.fa-angle-double-left {
 	top: 10px;
 	position: absolute;
-	right: 5px
+	right: 0px
 }
 

@@ -47,6 +47,9 @@ export class AppComponent implements OnDestroy, AfterViewInit, AfterViewChecked 
 
     ngAfterViewInit(): void {
         this.yamaha.element = this.yamahaEl.nativeElement;
+        console.log('Device info', this.deviceInfo, this.yamahaEl.nativeElement.parentNode);
+        if (this.isMobile) $(this.yamahaEl.nativeElement).closest("body").addClass("app-is-mobile");
+
         let doc = window.document;
         let docEl = doc.documentElement;
 
@@ -77,7 +80,7 @@ export class AppComponent implements OnDestroy, AfterViewInit, AfterViewChecked 
         this.isMobile = this.deviceService.isMobile();
         this.isTablet = this.deviceService.isTablet();
         this.isDesktop = this.deviceService.isDesktop();
-        console.log('Device info', this.deviceInfo);
+        // if (this.isMobile) this.yamahaEl.nativeElement
     }
 }
 

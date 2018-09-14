@@ -4,7 +4,8 @@
 	left: 0;
 	right: 10px;
 	bottom: 0;
-	font-size:20px;
+	font-size:24px;
+	line-height:36px;
 	height:unset;
 	overflow: auto;
 }

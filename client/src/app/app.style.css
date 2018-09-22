@@ -2,6 +2,10 @@ body {
 	margin: 0;
 }
 
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+  font: 500 18px/32px Roboto,"Helvetica Neue",sans-serif;
+  margin: 0;
+}
 .mat-sidenav {
 	width: 100%;
 	padding-top: 5px;
@@ -101,19 +105,38 @@ input.mat-input-element {
 	font: 500 24px/45px Roboto, "Helvetica Neue", sans-serif;
 }
 
-.app-is-mobile .mat-select-panel .mat-option {
-	line-height: 40px;
-	height: 40px;
+.mat-select-panel .mat-option {
+	line-height: 40px !important;
+	height: 40px !important;
+}
+.app-container .mat-icon-button {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid;
+}
+
+.app-container .mat-icon-button .mat-icon, .mat-icon-button i {
+	line-height: 24px;
+}
+
+.app-container .mat-icon {
+	height: 26px;
+	width: 26px;
 }
 
 .app-is-mobile.app-container .mat-icon-button, .app-is-mobile.app-container .mat-icon {
 	width: 40px !important;
 	height: 40px !important;
-	line-height: 40px !important;
+	line-height: 39px !important;
 	font-size: 24px;
 }
 
 .app-is-mobile .mat-form-field {
 	font-size: 24px;
 	line-height: 40px;
+}
+
+.menu-item:hover, button:hover {
+	background-color: lightsalmon;
 }

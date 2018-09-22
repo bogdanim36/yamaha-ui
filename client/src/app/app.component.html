@@ -18,7 +18,7 @@
 				<mat-icon>power</mat-icon>
 			</button>
 			<mat-select placeholder="Input"
-							style="width:110px;min-width:100px"
+							style="width:120px;min-width:100px;margin-left:5px"
 							[(value)]="yamaha.status.currentInput"
 							(selectionChange)="yamaha.setInputTo($event)">
 				<mat-option *ngFor="let option of yamaha.config.inputs" [value]="option">

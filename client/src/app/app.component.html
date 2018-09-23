@@ -11,10 +11,13 @@
 					  class="fa fa-arrows-h">
 			</button>
 			<button mat-icon-button (click)="toggleSidePanel()"
+					  style="margin-left:5px;"
 					  *ngIf="isMobile">
 				<mat-icon>settings</mat-icon>
 			</button>
-			<button mat-icon-button (click)="yamaha.powerToggle()" [class.is-off]="!yamaha.status.powerIsOn()">
+			<button mat-icon-button
+					  style="margin-left:5px;"
+					  (click)="yamaha.powerToggle()" [class.is-off]="!yamaha.status.powerIsOn()">
 				<mat-icon>power</mat-icon>
 			</button>
 			<mat-select placeholder="Input"
@@ -27,6 +30,7 @@
 			</mat-select>
 			<button mat-icon-button
 					  class="fa toggle-size"
+					  style="margin-left:5px;"
 					  [class.fa-window-maximize]="yamaha.status.collapsed"
 					  [class.fa-window-minimize]="!yamaha.status.collapsed"
 					  *ngIf="!isMobile"

@@ -1,16 +1,42 @@
 <div class="item" style="text-align: center" *ngIf="yamaha.status.playback">
 	<div>
-		<button mat-icon-button class="fa fa-fast-backward" (click)="yamaha.rewind()">
+		<button mat-icon-button
+				  class="fa fa-fast-backward"
+				  [class.is-off]="!yamaha.status.powerIsOn()"
+				  style="margin-left:5px;"
+				  (click)="yamaha.rewind()">
 		</button>
-		<button mat-icon-button class="fa fa-stop" (click)="yamaha.stop()"
-		[style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'">
+		<button mat-icon-button
+				  class="fa fa-stop"
+				  [class.is-off]="!yamaha.status.powerIsOn()"
+				  style="margin-left:5px;"
+				  [style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'"
+				  (click)="yamaha.stop()"
+		>
 		</button>
-		<button mat-icon-button class="fa fa-play" (click)="yamaha.play()"
-				  [style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'none':'inline'"></button>
-		<button mat-icon-button class="fa fa-pause" (click)="yamaha.pause()"
-				  [style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'"></button>
-		<button mat-icon-button class="fa fa-fast-forward" (click)="yamaha.skip()"></button>
-		<button mat-icon-button class="fa fa-random on" (click)="yamaha.shuffle()" [class.is-off]="yamaha.status.playback.Play_Mode[0].Shuffle[0] !=='On'">
+		<button mat-icon-button
+				  class="fa fa-play"
+				  style="margin-left:5px;"
+				  [style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'none':'inline'"
+				  (click)="yamaha.play()"
+		></button>
+		<button mat-icon-button
+				  class="fa fa-pause"
+				  style="margin-left:5px;"
+				  [style.display]="(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'"
+				  (click)="yamaha.pause()"
+		></button>
+		<button mat-icon-button
+				  class="fa fa-fast-forward"
+				  [class.is-off]="!yamaha.status.powerIsOn()"
+				  style="margin-left:5px;"
+				  (click)="yamaha.skip()"
+		></button>
+		<button mat-icon-button class="fa fa-random on"
+				  [class.is-off]="yamaha.status.playback.Play_Mode[0].Shuffle[0] !=='On'"
+				  style="margin-left:5px;"
+				  (click)="yamaha.shuffle()"
+		>
 		</button>
 	</div>
 </div>

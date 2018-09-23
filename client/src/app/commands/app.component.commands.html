@@ -23,13 +23,18 @@
 			<mat-icon>power_settings_new</mat-icon>
 		</button>
 
-		<button mat-icon-button (click)="yamaha.subwooferDown()">
+		<button mat-icon-button (click)="yamaha.subwooferDown()"
+				  [class.is-off]="!yamaha.status.subwooferIsOn()">
 			<mat-icon>remove</mat-icon>
 		</button>
-		<mat-form-field class="example-full-width" style="width:30px">
+		<mat-form-field class="example-full-width"
+							 [class.is-off]="!yamaha.status.subwooferIsOn()"
+							 style="width:30px">
 			<input matInput [value]="yamaha.status.subwooferTrim">
 		</mat-form-field>
-		<button mat-icon-button>
+		<button mat-icon-button
+				  [class.is-off]="!yamaha.status.subwooferIsOn()">
+
 			<mat-icon (click)="yamaha.subwooferUp()">add</mat-icon>
 		</button>
 	</div>

@@ -140,3 +140,12 @@ input.mat-input-element {
 .menu-item:hover, button:hover {
 	background-color: lightsalmon;
 }
+app-commands label{
+	margin-right:5px;
+}
+app-commands button {
+	margin-left:5px !important;
+}
+.mat-sidenav .item{
+	margin-bottom:5px;
+}

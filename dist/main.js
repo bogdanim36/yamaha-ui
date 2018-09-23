@@ -111,7 +111,7 @@ module.exports = ".app-container {\r\n\tdisplay: flex;\r\n\tflex-direction: colu
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-container\" #yamahaRef [class.app-is-mobile]=\"isMobile\">\n\t<mat-toolbar color=\"primary\">\n\t\t<mat-toolbar-row>\n\t\t\t<button mat-icon-button onclick=\"window.location.reload(true)\" style=\"margin-left:5px;\">\n\t\t\t\t<mat-icon>refresh</mat-icon>\n\t\t\t</button>\n\t\t\t<button mat-icon-button\n\t\t\t\t\t  *ngIf=\"!isMobile\"\n\t\t\t\t\t  (click)=\"yamaha.windowCheckSize()\"\n\t\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t\t  class=\"fa fa-arrows-h\">\n\t\t\t</button>\n\t\t\t<button mat-icon-button (click)=\"toggleSidePanel()\"\n\t\t\t\t\t  *ngIf=\"isMobile\">\n\t\t\t\t<mat-icon>settings</mat-icon>\n\t\t\t</button>\n\t\t\t<button mat-icon-button (click)=\"yamaha.powerToggle()\" [class.is-off]=\"!yamaha.status.powerIsOn()\">\n\t\t\t\t<mat-icon>power</mat-icon>\n\t\t\t</button>\n\t\t\t<mat-select placeholder=\"Input\"\n\t\t\t\t\t\t\tstyle=\"width:120px;min-width:100px;margin-left:5px\"\n\t\t\t\t\t\t\t[(value)]=\"yamaha.status.currentInput\"\n\t\t\t\t\t\t\t(selectionChange)=\"yamaha.setInputTo($event)\">\n\t\t\t\t<mat-option *ngFor=\"let option of yamaha.config.inputs\" [value]=\"option\">\n\t\t\t\t\t{{option}}\n\t\t\t\t</mat-option>\n\t\t\t</mat-select>\n\t\t\t<button mat-icon-button\n\t\t\t\t\t  class=\"fa toggle-size\"\n\t\t\t\t\t  [class.fa-window-maximize]=\"yamaha.status.collapsed\"\n\t\t\t\t\t  [class.fa-window-minimize]=\"!yamaha.status.collapsed\"\n\t\t\t\t\t  *ngIf=\"!isMobile\"\n\t\t\t\t\t  (click)=\"yamaha.toggleSize($event)\">\n\t\t\t</button>\n\t\t\t<app-playback *ngIf=\"!isMobile\" style=\"width:100%\">\n\t\t\t</app-playback>\n\t\t</mat-toolbar-row>\n\t\t<mat-toolbar-row *ngIf=\"!isMobile\">\n\t\t\t<app-commands class=\"mat-toolbar-single-row\">\n\t\t\t</app-commands>\n\t\t</mat-toolbar-row>\n\t\t<mat-toolbar-row *ngIf=\"isMobile\">\n\t\t\t<app-playback class=\"is-mobile-second-row\" style=\"width:100%\">\n\t\t\t</app-playback>\n\t\t</mat-toolbar-row>\n\n\t</mat-toolbar>\n\n\t<div *ngIf=\"sidePanelShow\" class=\"mat-sidenav\">\n\t\t<app-commands></app-commands>\n\t</div>\n\t<div class=\"album-info\" *ngIf=\"yamaha.status.playback && (!yamaha.status.collapsed || isMobile)\">\n\t\t<app-album-info *ngIf=\"!yamaha.showSourceMenu\">\n\t\t</app-album-info>\n\t\t<app-source-menu *ngIf=\"yamaha.showSourceMenu\">\n\t\t</app-source-menu>\n\t</div>\n</div>\n\n"
+module.exports = "<div class=\"app-container\" #yamahaRef [class.app-is-mobile]=\"isMobile\">\n\t<mat-toolbar color=\"primary\">\n\t\t<mat-toolbar-row>\n\t\t\t<button mat-icon-button onclick=\"window.location.reload(true)\" style=\"margin-left:5px;\">\n\t\t\t\t<mat-icon>refresh</mat-icon>\n\t\t\t</button>\n\t\t\t<button mat-icon-button\n\t\t\t\t\t  *ngIf=\"!isMobile\"\n\t\t\t\t\t  (click)=\"yamaha.windowCheckSize()\"\n\t\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t\t  class=\"fa fa-arrows-h\">\n\t\t\t</button>\n\t\t\t<button mat-icon-button (click)=\"toggleSidePanel()\"\n\t\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t\t  *ngIf=\"isMobile\">\n\t\t\t\t<mat-icon>settings</mat-icon>\n\t\t\t</button>\n\t\t\t<button mat-icon-button\n\t\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t\t  (click)=\"yamaha.powerToggle()\" [class.is-off]=\"!yamaha.status.powerIsOn()\">\n\t\t\t\t<mat-icon>power</mat-icon>\n\t\t\t</button>\n\t\t\t<mat-select placeholder=\"Input\"\n\t\t\t\t\t\t\tstyle=\"width:120px;min-width:100px;margin-left:5px\"\n\t\t\t\t\t\t\t[(value)]=\"yamaha.status.currentInput\"\n\t\t\t\t\t\t\t(selectionChange)=\"yamaha.setInputTo($event)\">\n\t\t\t\t<mat-option *ngFor=\"let option of yamaha.config.inputs\" [value]=\"option\">\n\t\t\t\t\t{{option}}\n\t\t\t\t</mat-option>\n\t\t\t</mat-select>\n\t\t\t<button mat-icon-button\n\t\t\t\t\t  class=\"fa toggle-size\"\n\t\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t\t  [class.fa-window-maximize]=\"yamaha.status.collapsed\"\n\t\t\t\t\t  [class.fa-window-minimize]=\"!yamaha.status.collapsed\"\n\t\t\t\t\t  *ngIf=\"!isMobile\"\n\t\t\t\t\t  (click)=\"yamaha.toggleSize($event)\">\n\t\t\t</button>\n\t\t\t<app-playback *ngIf=\"!isMobile\" style=\"width:100%\">\n\t\t\t</app-playback>\n\t\t</mat-toolbar-row>\n\t\t<mat-toolbar-row *ngIf=\"!isMobile\">\n\t\t\t<app-commands class=\"mat-toolbar-single-row\">\n\t\t\t</app-commands>\n\t\t</mat-toolbar-row>\n\t\t<mat-toolbar-row *ngIf=\"isMobile\">\n\t\t\t<app-playback class=\"is-mobile-second-row\" style=\"width:100%\">\n\t\t\t</app-playback>\n\t\t</mat-toolbar-row>\n\n\t</mat-toolbar>\n\n\t<div *ngIf=\"sidePanelShow\" class=\"mat-sidenav\">\n\t\t<app-commands></app-commands>\n\t</div>\n\t<div class=\"album-info\" *ngIf=\"yamaha.status.playback && (!yamaha.status.collapsed || isMobile)\">\n\t\t<app-album-info *ngIf=\"!yamaha.showSourceMenu\">\n\t\t</app-album-info>\n\t\t<app-source-menu *ngIf=\"yamaha.showSourceMenu\">\n\t\t</app-source-menu>\n\t</div>\n</div>\n\n"
 
 /***/ }),
 
@@ -348,7 +348,7 @@ var AppShared = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container>\n\t<div class=\"item\" style=\"border-left:none\">\n\t\t<Label>Volume:</Label>\n\t\t<button mat-icon-button class=\"fa fa-moon-o\" (click)=\"yamaha.setNightSound()\">\n\t\t</button>\n\t\t<button mat-icon-button (click)=\"yamaha.volumeDown()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\" style=\"width:46px\">\n\t\t\t<input matInput [value]=\"yamaha.status.volume\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button>\n\t\t\t<mat-icon (click)=\"yamaha.volumeUp()\">add</mat-icon>\n\t\t</button>\n\t\t<button mat-icon-button class=\"fa fa-sun-o\" (click)=\"yamaha.setDaySound()\">\n\t\t</button>\n\t</div>\n\t<div class=\"item\">\n\t\t<Label>Subwoofer:</Label>\n\t\t<button mat-icon-button\n\t\t\t\t  [class.is-off]=\"!yamaha.status.subwooferIsOn()\"\n\t\t\t\t  (click)=\"yamaha.subwooferToggle()\">\n\t\t\t<mat-icon>power_settings_new</mat-icon>\n\t\t</button>\n\n\t\t<button mat-icon-button (click)=\"yamaha.subwooferDown()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\" style=\"width:30px\">\n\t\t\t<input matInput [value]=\"yamaha.status.subwooferTrim\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button>\n\t\t\t<mat-icon (click)=\"yamaha.subwooferUp()\">add</mat-icon>\n\t\t</button>\n\t</div>\n\t<div class=\"item\">\n\t\t<Label>Treble:</Label>\n\t\t<button mat-icon-button (click)=\"yamaha.trebleDown()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\" style=\"width:30px\">\n\t\t\t<input matInput [value]=\"yamaha.status.treble\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button>\n\t\t\t<mat-icon (click)=\"yamaha.trebleUp()\">add</mat-icon>\n\t\t</button>\n\t</div>\n\t<div class=\"item\">\n\t\t<Label>Bass:</Label>\n\t\t<button mat-icon-button (click)=\"yamaha.bassDown()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\" style=\"width:30px\">\n\t\t\t<input matInput [value]=\"yamaha.status.bass\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button>\n\t\t\t<mat-icon (click)=\"yamaha.bassUp()\">add</mat-icon>\n\t\t</button>\n\t</div>\n</ng-container>\n"
+module.exports = "<ng-container>\n\t<div class=\"item\" style=\"border-left:none\">\n\t\t<Label>Volume:</Label>\n\t\t<button mat-icon-button class=\"fa fa-moon-o\" (click)=\"yamaha.setNightSound()\">\n\t\t</button>\n\t\t<button mat-icon-button (click)=\"yamaha.volumeDown()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\" style=\"width:46px\">\n\t\t\t<input matInput [value]=\"yamaha.status.volume\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button>\n\t\t\t<mat-icon (click)=\"yamaha.volumeUp()\">add</mat-icon>\n\t\t</button>\n\t\t<button mat-icon-button class=\"fa fa-sun-o\" (click)=\"yamaha.setDaySound()\">\n\t\t</button>\n\t</div>\n\t<div class=\"item\">\n\t\t<Label>Subwoofer:</Label>\n\t\t<button mat-icon-button\n\t\t\t\t  [class.is-off]=\"!yamaha.status.subwooferIsOn()\"\n\t\t\t\t  (click)=\"yamaha.subwooferToggle()\">\n\t\t\t<mat-icon>power_settings_new</mat-icon>\n\t\t</button>\n\n\t\t<button mat-icon-button (click)=\"yamaha.subwooferDown()\"\n\t\t\t\t  [class.is-off]=\"!yamaha.status.subwooferIsOn()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\"\n\t\t\t\t\t\t\t [class.is-off]=\"!yamaha.status.subwooferIsOn()\"\n\t\t\t\t\t\t\t style=\"width:30px\">\n\t\t\t<input matInput [value]=\"yamaha.status.subwooferTrim\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button\n\t\t\t\t  [class.is-off]=\"!yamaha.status.subwooferIsOn()\">\n\n\t\t\t<mat-icon (click)=\"yamaha.subwooferUp()\">add</mat-icon>\n\t\t</button>\n\t</div>\n\t<div class=\"item\">\n\t\t<Label>Treble:</Label>\n\t\t<button mat-icon-button (click)=\"yamaha.trebleDown()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\" style=\"width:30px\">\n\t\t\t<input matInput [value]=\"yamaha.status.treble\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button>\n\t\t\t<mat-icon (click)=\"yamaha.trebleUp()\">add</mat-icon>\n\t\t</button>\n\t</div>\n\t<div class=\"item\">\n\t\t<Label>Bass:</Label>\n\t\t<button mat-icon-button (click)=\"yamaha.bassDown()\">\n\t\t\t<mat-icon>remove</mat-icon>\n\t\t</button>\n\t\t<mat-form-field class=\"example-full-width\" style=\"width:30px\">\n\t\t\t<input matInput [value]=\"yamaha.status.bass\">\n\t\t</mat-form-field>\n\t\t<button mat-icon-button>\n\t\t\t<mat-icon (click)=\"yamaha.bassUp()\">add</mat-icon>\n\t\t</button>\n\t</div>\n</ng-container>\n"
 
 /***/ }),
 
@@ -444,7 +444,7 @@ String.prototype.unescapeForXML = function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item\" style=\"text-align: center\" *ngIf=\"yamaha.status.playback\">\n\t<div>\n\t\t<button mat-icon-button class=\"fa fa-fast-backward\" (click)=\"yamaha.rewind()\">\n\t\t</button>\n\t\t<button mat-icon-button class=\"fa fa-stop\" (click)=\"yamaha.stop()\"\n\t\t[style.display]=\"(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'\">\n\t\t</button>\n\t\t<button mat-icon-button class=\"fa fa-play\" (click)=\"yamaha.play()\"\n\t\t\t\t  [style.display]=\"(yamaha.status.playback.Playback_Info[0]=== 'Play')?'none':'inline'\"></button>\n\t\t<button mat-icon-button class=\"fa fa-pause\" (click)=\"yamaha.pause()\"\n\t\t\t\t  [style.display]=\"(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'\"></button>\n\t\t<button mat-icon-button class=\"fa fa-fast-forward\" (click)=\"yamaha.skip()\"></button>\n\t\t<button mat-icon-button class=\"fa fa-random on\" (click)=\"yamaha.shuffle()\" [class.is-off]=\"yamaha.status.playback.Play_Mode[0].Shuffle[0] !=='On'\">\n\t\t</button>\n\t</div>\n</div>\n"
+module.exports = "<div class=\"item\" style=\"text-align: center\" *ngIf=\"yamaha.status.playback\">\n\t<div>\n\t\t<button mat-icon-button\n\t\t\t\t  class=\"fa fa-fast-backward\"\n\t\t\t\t  [class.is-off]=\"!yamaha.status.powerIsOn()\"\n\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t  (click)=\"yamaha.rewind()\">\n\t\t</button>\n\t\t<button mat-icon-button\n\t\t\t\t  class=\"fa fa-stop\"\n\t\t\t\t  [class.is-off]=\"!yamaha.status.powerIsOn()\"\n\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t  [style.display]=\"(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'\"\n\t\t\t\t  (click)=\"yamaha.stop()\"\n\t\t>\n\t\t</button>\n\t\t<button mat-icon-button\n\t\t\t\t  class=\"fa fa-play\"\n\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t  [style.display]=\"(yamaha.status.playback.Playback_Info[0]=== 'Play')?'none':'inline'\"\n\t\t\t\t  (click)=\"yamaha.play()\"\n\t\t></button>\n\t\t<button mat-icon-button\n\t\t\t\t  class=\"fa fa-pause\"\n\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t  [style.display]=\"(yamaha.status.playback.Playback_Info[0]=== 'Play')?'inline':'none'\"\n\t\t\t\t  (click)=\"yamaha.pause()\"\n\t\t></button>\n\t\t<button mat-icon-button\n\t\t\t\t  class=\"fa fa-fast-forward\"\n\t\t\t\t  [class.is-off]=\"!yamaha.status.powerIsOn()\"\n\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t  (click)=\"yamaha.skip()\"\n\t\t></button>\n\t\t<button mat-icon-button class=\"fa fa-random on\"\n\t\t\t\t  [class.is-off]=\"yamaha.status.playback.Play_Mode[0].Shuffle[0] !=='On'\"\n\t\t\t\t  style=\"margin-left:5px;\"\n\t\t\t\t  (click)=\"yamaha.shuffle()\"\n\t\t>\n\t\t</button>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -902,7 +902,10 @@ var Yamaha = /** @class */ (function () {
         else
             value = this.status.powerIsOn() ? _app_component_yamaha_status__WEBPACK_IMPORTED_MODULE_1__["PowerStatus"].Off : _app_component_yamaha_status__WEBPACK_IMPORTED_MODULE_1__["PowerStatus"].On;
         this.api.cmd({ cmd: 'power' + value, param1: this.status.zone }).subscribe(function (data) {
-            _this.getBasicInfo(_this.status.zone);
+            if (callbackFn)
+                callbackFn.call(_this, data);
+            else
+                _this.getBasicInfo(_this.status.zone);
         }, function (err) { return _this.getError(err); });
     };
     Yamaha.prototype.subwooferToggle = function (value) {
@@ -960,8 +963,6 @@ var Yamaha = /** @class */ (function () {
         this.status.power = this.status.basic.Power_Control[0].Power[0];
         this.status._volume = parseInt(this.status.basic.Volume[0].Lvl[0].Val[0], 0);
         this.status.currentInput = this.status.basic.Input[0].Input_Sel[0];
-        if (!this.status.powerIsOn())
-            return callback ? callback() : true;
         if (this.status.currentInput === 'SERVER')
             this.getInfo();
         else {
@@ -1108,15 +1109,18 @@ var Yamaha = /** @class */ (function () {
         });
     };
     Yamaha.prototype.setNightSound = function () {
-        if (this.status.volume > this.config.volume.night) {
-            this.status.volume = this.config.volume.night;
-            this.setVolumeTo(this.status.volume);
-        }
-        if (this.status.bass > this.config.bass.night) {
-            this.status.bass = this.config.bass.night;
-            this.setBassTo(this.status.bass);
-        }
-        this.subwooferToggle(_app_component_yamaha_status__WEBPACK_IMPORTED_MODULE_1__["SubwooferStatus"].Off);
+        var executeFn = function () {
+            if (this.status.volume > this.config.volume.night) {
+                this.status.volume = this.config.volume.night;
+                this.setVolumeTo(this.status.volume);
+            }
+            if (this.status.bass > this.config.bass.night) {
+                this.status.bass = this.config.bass.night;
+                this.setBassTo(this.status.bass);
+            }
+            this.subwooferToggle(_app_component_yamaha_status__WEBPACK_IMPORTED_MODULE_1__["SubwooferStatus"].Off);
+        };
+        this.powerToggle(executeFn, true);
     };
     Yamaha.prototype.setDaySound = function () {
         if (this.status.volume < this.config.volume.day) {
@@ -1133,9 +1137,8 @@ var Yamaha = /** @class */ (function () {
         var height = jquery__WEBPACK_IMPORTED_MODULE_4__(this.element).height();
         var width = jquery__WEBPACK_IMPORTED_MODULE_4__(this.element).width();
         console.log('window resize', width, height);
-        if (jquery__WEBPACK_IMPORTED_MODULE_4__(window).width() < width - 17)
-            height += 2;
-        window.resizeTo(width + 17, height + 39);
+        // if ($(window).width() < width - 17) height += 2;
+        window.resizeTo(width + 17, height + 36);
         this.window.width = width;
         this.window.height = height;
     };

@@ -37,7 +37,8 @@ export class Yamaha {
             value = on ? PowerStatus.On : PowerStatus.Off;
         } else value = this.status.powerIsOn() ? PowerStatus.Off : PowerStatus.On;
         this.api.cmd({cmd: 'power' + value, param1: this.status.zone}).subscribe(data => {
-            this.getBasicInfo(this.status.zone);
+            if (callbackFn) callbackFn.call(this, data);
+            else this.getBasicInfo(this.status.zone);
         }, err => this.getError(err));
     }
 
@@ -96,7 +97,6 @@ export class Yamaha {
         this.status.power = this.status.basic.Power_Control[0].Power[0];
         this.status._volume = parseInt(this.status.basic.Volume[0].Lvl[0].Val[0], 0);
         this.status.currentInput = this.status.basic.Input[0].Input_Sel[0];
-        if (!this.status.powerIsOn()) return callback ? callback() : true;
         if (this.status.currentInput === 'SERVER') this.getInfo();
         else {
             if (document.title.startsWith(AppShared.apiError)) document.title = AppShared.appTitle;
@@ -251,15 +251,18 @@ export class Yamaha {
     }
 
     setNightSound() {
-        if (this.status.volume > this.config.volume.night) {
-            this.status.volume = this.config.volume.night;
-            this.setVolumeTo(this.status.volume);
-        }
-        if (this.status.bass > this.config.bass.night) {
-            this.status.bass = this.config.bass.night;
-            this.setBassTo(this.status.bass);
-        }
-        this.subwooferToggle(SubwooferStatus.Off);
+        let executeFn = function() {
+            if (this.status.volume > this.config.volume.night) {
+                this.status.volume = this.config.volume.night;
+                this.setVolumeTo(this.status.volume);
+            }
+            if (this.status.bass > this.config.bass.night) {
+                this.status.bass = this.config.bass.night;
+                this.setBassTo(this.status.bass);
+            }
+            this.subwooferToggle(SubwooferStatus.Off);
+        };
+        this.powerToggle(executeFn, true);
     }
 
     setDaySound() {
@@ -278,8 +281,8 @@ export class Yamaha {
         let height = $(this.element).height();
         let width = $(this.element).width();
         console.log('window resize', width, height);
-        if ($(window).width() < width - 17) height += 2;
-        window.resizeTo(width + 17, height + 39);
+        // if ($(window).width() < width - 17) height += 2;
+        window.resizeTo(width + 17, height + 36);
         this.window.width = width;
         this.window.height = height;
     }

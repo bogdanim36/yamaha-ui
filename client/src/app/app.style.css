@@ -106,8 +106,8 @@ input.mat-input-element {
 }
 
 .mat-select-panel .mat-option {
-	line-height: 40px !important;
-	height: 40px !important;
+	line-height: 32px !important;
+	height: 32px !important;
 }
 .app-container .mat-icon-button {
 	width: 30px;

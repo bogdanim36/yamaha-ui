@@ -1,6 +1,6 @@
 {
-  "ip": "",
-  "inputs": ["SERVER", "AUDIO1"],
+  "ip": "192.168.1.9",
+  "inputs": ["SERVER", "AUDIO1", "AV1"],
   "volume":{
     "min":-65,
     "max":20,

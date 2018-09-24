@@ -93,6 +93,7 @@ export class Yamaha {
     private getBasicInfoResponse(response, callback) {
         if (!response) return callback ? callback() : true;
         if (this.api.cancelRunningTask) return callback ? callback() : true;
+
         this.status.basic = response.data.YAMAHA_AV.Main_Zone[0].Basic_Status[0];
         this.status.power = this.status.basic.Power_Control[0].Power[0];
         this.status._volume = parseInt(this.status.basic.Volume[0].Lvl[0].Val[0], 0);
@@ -262,7 +263,7 @@ export class Yamaha {
             }
             this.subwooferToggle(SubwooferStatus.Off);
         };
-        this.powerToggle(executeFn, true);
+        this.powerToggle(executeFn.bind(this), true);
     }
 
     setDaySound() {

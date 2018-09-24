@@ -1120,7 +1120,7 @@ var Yamaha = /** @class */ (function () {
             }
             this.subwooferToggle(_app_component_yamaha_status__WEBPACK_IMPORTED_MODULE_1__["SubwooferStatus"].Off);
         };
-        this.powerToggle(executeFn, true);
+        this.powerToggle(executeFn.bind(this), true);
     };
     Yamaha.prototype.setDaySound = function () {
         if (this.status.volume < this.config.volume.day) {

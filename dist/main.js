@@ -950,7 +950,10 @@ var Yamaha = /** @class */ (function () {
         this.api.runningTask = setTimeout(function () {
             self.api.cancelRunningTask = false;
             self.api.action('getBasicInfo', 'get', { zone: zone }).subscribe(function (response) {
-                self.getBasicInfoResponse(response, callback);
+                if (!response.status)
+                    document.title = _app_shared__WEBPACK_IMPORTED_MODULE_0__["AppShared"].apiError;
+                else
+                    self.getBasicInfoResponse(response, callback);
             }, function (err) { return self.getError(err); });
         }, delay || 1400);
     };
@@ -959,10 +962,10 @@ var Yamaha = /** @class */ (function () {
             return callback ? callback() : true;
         if (this.api.cancelRunningTask)
             return callback ? callback() : true;
-        this.status.basic = response.data.YAMAHA_AV.Main_Zone[0].Basic_Status[0];
-        this.status.power = this.status.basic.Power_Control[0].Power[0];
-        this.status._volume = parseInt(this.status.basic.Volume[0].Lvl[0].Val[0], 0);
-        this.status.currentInput = this.status.basic.Input[0].Input_Sel[0];
+        this.status.basic = response.data.YAMAHA_AV ? response.data.YAMAHA_AV.Main_Zone[0].Basic_Status[0] : null;
+        this.status.power = this.status.basic ? this.status.basic.Power_Control[0].Power[0] : null;
+        this.status._volume = this.status.basic ? parseInt(this.status.basic.Volume[0].Lvl[0].Val[0], 0) : -800;
+        this.status.currentInput = this.status.basic ? this.status.basic.Input[0].Input_Sel[0] : '???';
         if (this.status.currentInput === 'SERVER')
             this.getInfo();
         else {
@@ -971,9 +974,9 @@ var Yamaha = /** @class */ (function () {
             this.status.playback = null;
             this.status.menu = null;
         }
-        this.status._treble = parseInt(this.status.basic.Sound_Video[0].Tone[0].Treble[0].Val[0], 0);
-        this.status._bass = parseInt(this.status.basic.Sound_Video[0].Tone[0].Bass[0].Val[0], 0);
-        this.status._subwooferTrim = parseInt(this.status.basic.Volume[0].Subwoofer_Trim[0].Val[0], 0);
+        this.status._treble = this.status.basic ? parseInt(this.status.basic.Sound_Video[0].Tone[0].Treble[0].Val[0], 0) : -60;
+        this.status._bass = this.status.basic ? parseInt(this.status.basic.Sound_Video[0].Tone[0].Bass[0].Val[0], 0) : -60;
+        this.status._subwooferTrim = this.status.basic ? parseInt(this.status.basic.Volume[0].Subwoofer_Trim[0].Val[0], 0) : -60;
         if (callback)
             callback();
         // console.log('get basic response', this.status.$volume);

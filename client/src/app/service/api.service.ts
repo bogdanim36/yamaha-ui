@@ -6,7 +6,7 @@ import {ApiConfig} from './api.service.config';
 @Injectable()
 export class ApiService {
     controller = 'Yamaha';
-    config = new ApiConfig();
+    config: ApiConfig = new ApiConfig();
     runningTask: number;
     cancelRunningTask = false;
 

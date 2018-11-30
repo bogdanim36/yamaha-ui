@@ -1,6 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+
 import {
     MatButtonModule,
     MatCheckboxModule,
@@ -10,14 +12,13 @@ import {
     MatToolbarModule
 } from '@angular/material';
 
-import {AppComponent} from '@app/app.component';
-import {CommandsComponent} from '@app/commands/app.component.commands';
-import {HttpClientModule} from '@angular/common/http';
-import {PlaybackComponent} from '@app/playback/app.component.playback';
-import '@app/extensions';
-import {AlbumInfoComponent} from '@app/album-info/app.component.album-info';
 import {DeviceDetectorModule} from 'ngx-device-detector';
-import {SourceMenuComponent} from '@app/source-menu/app.component.source-menu';
+
+import {AppComponent} from './app.component';
+import {AlbumInfoComponent} from './album-info/app.component.album-info';
+import {PlaybackComponent} from './playback/app.component.playback';
+import {SourceMenuComponent} from './source-menu/app.component.source-menu';
+import {CommandsComponent} from './commands/app.component.commands';
 
 @NgModule({
     declarations: [

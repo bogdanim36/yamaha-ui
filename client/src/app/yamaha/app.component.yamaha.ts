@@ -5,7 +5,7 @@ import 'rxjs';
 import {YamahaConfig} from './app.component.yamaha.config';
 import * as $ from 'jquery';
 import {ChangeDetectorRef, NgZone} from '@angular/core';
-
+import '../extensions';
 export class Yamaha {
     status = new YamahaStatus();
     zone: NgZone;
@@ -20,7 +20,7 @@ export class Yamaha {
     constructor(jsonSrv: ApiService) {
         this.api = jsonSrv;
         const self = this;
-        jsonSrv.getJSON('./assets/yamaha.json').subscribe(data => {
+        this.api.getJSON('./assets/yamaha.json').subscribe(data => {
             self.config = data;
             self.status.config = data;
             self.setCtrlIp();

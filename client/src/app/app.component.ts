@@ -9,10 +9,10 @@ import {
     ViewChild,
     ViewEncapsulation
 } from '@angular/core';
-import {Yamaha} from '@app/yamaha/app.component.yamaha';
-import {ApiService} from '@app/service/api.service';
 import {DeviceDetectorService, DeviceInfo} from 'ngx-device-detector';
 import * as $ from 'jquery';
+import {ApiService} from './service/api.service';
+import {Yamaha} from './yamaha/app.component.yamaha';
 
 @Component({
     selector: 'app-root',

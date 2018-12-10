@@ -1,1 +1,5 @@
 /dist/assets/yamaha.json
+node_modules
+resources
+package-lock.json
+.idea

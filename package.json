@@ -1,0 +1,21 @@
+{
+  "name": "Yamaha",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prod-server-start": "node dist/app.js",
+    "dev-client-start": "cd client && ng serve --proxy-config proxy.conf.json",
+    "dev-server-start": "node server/app.js",
+    "build": "gulp build",
+    "client-test": "cd client && ng test",
+    "client-lint": "cd client && ng lint",
+    "client-e2e": "cd client && ng e2e"
+  },
+  "private": true,
+  "devDependencies": {
+    "cb": "^0.1.0",
+    "fs-sync": "^1.0.6",
+    "gulp": "^3.9.1",
+    "gulp-exec": "^3.0.2"
+  }
+}

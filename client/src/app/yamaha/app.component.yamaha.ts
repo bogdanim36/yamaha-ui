@@ -14,7 +14,7 @@ export class Yamaha {
     element: HTMLElement;
     api: ApiService;
     window = {width: 0, height: 0};
-    showSourceMenu: false;
+    showSourceMenu= false;
 
 
     constructor(jsonSrv: ApiService) {
@@ -42,7 +42,7 @@ export class Yamaha {
         }, err => this.getError(err));
     }
 
-    subwooferToggle(value: string) {
+    subwooferToggle(value?: string) {
         value = value || (this.status.subwooferIsOn() ? PowerStatus.Off : PowerStatus.On);
         this.api.cmd({cmd: 'extraBass' + value, param1: this.status.zone}).subscribe(response => {
             this.getBasicInfo(this.status.zone);

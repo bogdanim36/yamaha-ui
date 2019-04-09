@@ -1,0 +1,17 @@
+se creeaza un fisier conf in directorul etc/init:
+cd /etc/init
+sudo vi yamaha.conf:
+
+copy si paste (la click)
+-----------------------------------------
+description "Yamaha controller"
+start on syno.share.ready
+stop on runlevel [06]
+setuid http
+exec node /volume1/web/yamaha/app.js
+--------------------------------------------------
+salvare: escape :wq
+iesire fara salvare: escape :q!
+
+testare: sudo start yamaha
+stop: sudo stop yamaha

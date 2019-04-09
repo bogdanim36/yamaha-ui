@@ -33,10 +33,10 @@
 					  style="margin-left:5px;"
 					  [class.fa-window-maximize]="yamaha.status.collapsed"
 					  [class.fa-window-minimize]="!yamaha.status.collapsed"
-					  *ngIf="!isMobile"
+					  *ngIf="yamaha.status.playback && !isMobile"
 					  (click)="yamaha.toggleSize($event)">
 			</button>
-			<app-playback *ngIf="!isMobile" style="width:100%">
+			<app-playback *ngIf="yamaha.status.playback && !isMobile" style="width:100%">
 			</app-playback>
 		</mat-toolbar-row>
 		<mat-toolbar-row *ngIf="!isMobile">
